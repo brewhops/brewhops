@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec \"ts-node $1\"",
-    "dev": "nodemon --exec \"ts-node $1\""
+    "dev": "now dev",
+    "build": "tsc",
+    "now-build": "tsc",
+    "watch": "tsc --watch"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +19,6 @@
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
     "node": "^12.3.1",
-    "nodemon": "^1.19.1",
     "pg": "^7.11.0",
     "ts-node": "^8.2.0"
   },
