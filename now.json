@@ -16,7 +16,7 @@
   ],
   "routes": [
     {
-      "src": "/api/test/(.*)",
+      "src": "/api/test/",
       "dest": "/api/routes/test/index.ts",
       "methods": [
         "POST",
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "src": "/api/actions/index.js",
+      "src": "/api/actions/",
       "dest": "/api/routes/action/index.ts",
       "methods": [
         "POST",
