@@ -1,7 +1,7 @@
-import express, { Express } from 'express';
+import e, { Express } from 'express';
 import helmet from 'helmet';
 
-const lambda: Express  = express();
+const lambda: Express  = e();
 lambda.use(helmet());
 
 lambda.get('/', (req, res) => {

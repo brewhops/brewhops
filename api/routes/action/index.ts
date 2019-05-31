@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+import e, { Express } from 'express';
 import helmet from 'helmet';
 import { IActionController } from '../../src/controllers/action/types';
 import { ActionController } from '../../src/controllers/action';
@@ -8,7 +8,7 @@ import validate from 'express-validation';
 
 const controller: IActionController = new ActionController();
 
-const lambda: Express  = express();
+const lambda: Express  = e();
 lambda.use(helmet());
 
 lambda.get('/', async (req, res, next) => controller.getActions(req, res, next));
