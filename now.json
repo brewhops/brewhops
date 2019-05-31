@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "app",
+  "name": "brewhops",
   "builds": [
     {
       "src": "api/**/*.ts",
