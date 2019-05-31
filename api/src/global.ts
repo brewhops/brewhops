@@ -1,5 +1,6 @@
 import Joi from 'joi';
 
+// tslint:disable:no-any
 declare global {
   namespace Express {
     export interface Request {
