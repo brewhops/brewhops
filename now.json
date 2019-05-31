@@ -1,6 +1,9 @@
 {
   "version": 2,
   "name": "app",
+  "env": {
+    "IS_NOW": "@is_now"
+  },
   "builds": [
     {
       "src": "app/package.json",
