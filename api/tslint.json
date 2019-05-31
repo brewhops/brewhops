@@ -1,3 +1,6 @@
 {
-  "extends": "@osu-cass/tslint-config"
+  "extends": "@osu-cass/tslint-config",
+  "rules": {
+    "no-default-export": false
+  }
 }

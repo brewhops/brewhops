@@ -10,8 +10,8 @@ import { IActionController } from './types';
  * @implements {IActionController}
  */
 export class ActionController extends PostgresController implements IActionController {
-  constructor(tableName: string) {
-    super(tableName);
+  constructor() {
+    super('actions');
   }
 
   /**
