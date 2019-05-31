@@ -14,4 +14,4 @@ lambda.use(helmet());
 lambda.get('/', async (req, res, next) => controller.getActions(req, res, next));
 lambda.post('/', validate(ActionValidator.createAction), requireAuthentication, async (req, res, next) => controller.createAction(req, res, next));
 
-export default lambda;
+module.exports = lambda;

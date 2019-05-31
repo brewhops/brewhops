@@ -4,7 +4,10 @@
   "builds": [
     {
       "src": "api/**/*.ts",
-      "use": "@now/node@canary"
+      "use": "@now/node",
+      "config": { 
+        "maxLambdaSize": "36mb" 
+      }
     },
     {
       "src": "app/package.json",
@@ -17,14 +20,10 @@
   "routes": [
     {
       "src": "/api/test/(.*)",
-      "dest": "/api/routes/test/index.ts",
-      "methods": [
-        "POST",
-        "GET"
-      ]
+      "dest": "/api/test/index.ts"
     },
     {
-      "src": "/api/actions/index.js",
+      "src": "/api/actions/(.*)",
       "dest": "/api/routes/action/index.ts",
       "methods": [
         "POST",
@@ -33,7 +32,7 @@
     },
     {
       "src": "/api/actions/id/(.*)",
-      "dest": "/api/routes/action/id/$1",
+      "dest": "/api/routes/action/id/index.ts",
       "methods": [
         "PATCH",
         "DELETE",

@@ -4,8 +4,8 @@ import helmet from 'helmet';
 const lambda: Express  = e();
 lambda.use(helmet());
 
-lambda.get('/', (req, res) => {
+lambda.get('*', (req, res) => {
   res.send('hello world');
 });
 
-export default lambda;
+module.exports = lambda;
