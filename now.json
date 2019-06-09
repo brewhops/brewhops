@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "app",
+  "name": "brewhops",
   "env": {
     "IS_NOW": "@is_now"
   },
@@ -9,9 +9,18 @@
       "src": "app/package.json",
       "use": "@now/static-build",
       "config": { "distDir": "build" }
+    },
+    {
+      "src": "api/src/routes/**/*.ts",
+      "use": "@now/node"
     }
   ],
   "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/src/routes/$1/index.ts"
+    },
+
     {
       "src": "/static/(.*)",
       "headers": { "cache-control": "s-maxage=31536000,immutable" },
