@@ -19,21 +19,21 @@ app.use((req: Request, res: Response, next: NextFunction) => next());
 
 // GET
 app.get(
-    '/api/tank/id/:id',
+    '/api/tanks/',
+    async (req, res, next) => controller.getTanks(req, res, next)
+);
+app.get(
+    '/api/tanks/id/:id',
     async (req, res, next) => controller.getTank(req, res, next)
 );
 app.get(
-    '/api/tank/monitoring',
+    '/api/tanks/monitoring',
     async (req, res, next) => controller.getTankMonitoring(req, res, next)
-);
-app.get(
-    '*/',
-    async (req, res, next) => controller.getTanks(req, res, next)
 );
 
 // POST
 app.post(
-    '/api/tank/',
+    '/api/tanks/',
     validate(TankValidator.createTank),
     requireAuthentication,
     async (req, res, next) => controller.createTank(req, res, next)
@@ -41,7 +41,7 @@ app.post(
 
 // PATCH
 app.patch(
-    '/api/tank/id/:id',
+    '/api/tanks/id/:id',
     validate(TankValidator.updateTank),
     requireAuthentication,
     async (req, res, next) => controller.updateTank(req, res, next)
@@ -49,7 +49,7 @@ app.patch(
 
 // DELETE
 app.delete(
-    '/api/tank/id/:id',
+    '/api/tanks/id/:id',
     requireAuthentication,
     async (req, res, next) => controller.deleteTank(req, res, next)
 );
