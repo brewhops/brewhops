@@ -6,7 +6,7 @@ import { TankValidator } from '../../controllers/tank/validate';
 import { requireAuthentication } from '../../middleware';
 
 import { ITankController } from '../../controllers/tank/types';
-import { Application, Router, Request, Response, NextFunction } from 'express';
+import { Application, Request, Response, NextFunction } from 'express';
 
 // tslint:disable-next-line:no-require-imports no-var-requires
 const validate = require('express-validation');

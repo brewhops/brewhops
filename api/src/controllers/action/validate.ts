@@ -1,5 +1,6 @@
 import Joi from 'joi';
 
+
 export interface IActionValidator {
   createAction: () => JOIResult;
   updateAction: () => JOIResult;

@@ -6,13 +6,13 @@ import { ActionValidator } from '../../controllers/action/validate';
 import { requireAuthentication } from '../../middleware';
 
 import { IActionController } from '../../controllers/action/types';
-import { Application, Router, Request, Response, NextFunction } from 'express';
+import { Application, Request, Response, NextFunction } from 'express';
 
 // tslint:disable-next-line:no-require-imports no-var-requires
 const validate = require('express-validation');
 
 const app = <Application>appExport;
-const controller: IActionController = new ActionController('tanks');
+const controller: IActionController = new ActionController('actions');
 
 app.use((req: Request, res: Response, next: NextFunction) => next());
 
