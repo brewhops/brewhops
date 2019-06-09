@@ -2,7 +2,9 @@
   "version": 2,
   "name": "brewhops",
   "env": {
-    "IS_NOW": "@is_now"
+    "IS_NOW": "@is_now",
+    "NODE_ENV": "production",
+    "DATABASE_URL": "@database_url"
   },
   "builds": [
     {
@@ -17,7 +19,7 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/([^/]*)/(.*)",
       "dest": "api/src/routes/$1/index.ts"
     },
 
