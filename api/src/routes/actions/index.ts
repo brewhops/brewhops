@@ -53,3 +53,5 @@ app.use(
     '*',
     (req, res) => res.status(404).send(Boom.badRequest(`${req.originalUrl} doesn't exist`))
 );
+
+module.exports = app;
