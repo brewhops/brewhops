@@ -8,13 +8,13 @@
   },
   "builds": [
     {
+      "src": "api/src/routes/**/*.ts",
+      "use": "@now/node"
+    },
+    {
       "src": "app/package.json",
       "use": "@now/static-build",
       "config": { "distDir": "build" }
-    },
-    {
-      "src": "api/src/routes/**/*.ts",
-      "use": "@now/node"
     }
   ],
   "routes": [
