@@ -43,6 +43,7 @@ export interface IBatchesController extends IPostgresController {
   getBatch: RequestHandler;
   createBatch: RequestHandler;
   updateBatch: RequestHandler;
+  patchBatch: RequestHandler;
   deleteBatch: RequestHandler;
   closeBatch: RequestHandler;
 }

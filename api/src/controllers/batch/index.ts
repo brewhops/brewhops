@@ -1,3 +1,5 @@
+import Boom from 'boom';
+
 import { PostgresController } from '../../dal/postgres';
 import { Request, Response, NextFunction } from 'express';
 import { IBatchesController, Batch } from './types';
@@ -181,6 +183,39 @@ export class BatchesController extends PostgresController implements IBatchesCon
       res.status(400).send(err);
     }
 
+  }
+
+  /**
+   * Patches an existing batch.
+   * @param {Request} req
+   * @param {Response} res
+   * @param {NextFunction} next
+   * @memberof BatchesController
+   */
+  async patchBatch(req: Request, res: Response, next: NextFunction) {
+    const batchId = req.params.id;
+
+    // Get active batch
+    const batchResults = await this.readById(batchId);
+
+    const { keys, values, escapes } = this.splitObjectKeyVals(req.body);
+
+    // if the item does not exist
+    if (batchResults.rowCount === 0) {
+      res.status(404).end();
+    } else {
+      try {
+        // set an update
+        const { query, idx } = await this.buildUpdateString(keys);
+        values.push(batchId);
+        // update the batch
+        await this.update(query, `id = \$${idx}`, values);
+
+        res.status(204).end();
+      } catch (err) {
+        res.status(400).send(Boom.badRequest(err));
+      }
+    }
   }
 
   /**
